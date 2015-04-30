@@ -12,7 +12,7 @@ type Server struct{
 	ip       string
 	port     string
 	listener net.Listener
-	clients  chmap.Chmap
+	clients  *chmap.Chmap
 	running  bool
 	counter  int64
 	lock     sync.Mutex
@@ -23,7 +23,7 @@ func NewServer(ip string, port string) Server {
 	s.ip = ip
 	s.port = port
 	s.counter = 0
-	s.clients = chmap.NewMap()//map[string]net.Conn
+	s.clients = chmap.NewMap(32)//map[string]net.Conn
 	return s
 }
 

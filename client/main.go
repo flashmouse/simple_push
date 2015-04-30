@@ -19,7 +19,7 @@ func main() {
 	flag.StringVar(&ip, "ip", "127.0.0.1", "server listene ip")
 	flag.IntVar(&port, "port", 9987, "server listen port")
 	flag.Parse()
-	loop := 30000
+	loop := 15000
 	errLoop := 0
 	for i := 0; i < loop; i++ {
 		con , err := net.Dial("tcp", ip+":"+strconv.Itoa(port))
